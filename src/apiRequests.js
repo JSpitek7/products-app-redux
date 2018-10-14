@@ -4,7 +4,8 @@ import {
     requestSuppliers,
     receiveProducts,
     receiveCategories,
-    receiveSuppliers
+    receiveSuppliers,
+    showInventory
 } from './actions'
 
 export function fetchProducts() {
@@ -46,5 +47,8 @@ export function fetchSuppliers() {
         .then(jsonResponse => {
             dispatch(receiveSuppliers(jsonResponse))            
         })
+        .then(
+            dispatch(showInventory)
+        )
     }
 }

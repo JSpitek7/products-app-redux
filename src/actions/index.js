@@ -46,3 +46,13 @@ export function removeItemFromCart(id) {
         itemId: id
     }
 }
+export function showInventory() {
+    return {
+        type: 'SHOW_INVENTORY'
+    }
+}
+export function showCart() {
+    return {
+        type: 'SHOW_CART'
+    }
+}

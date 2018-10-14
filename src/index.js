@@ -7,7 +7,6 @@ import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers'
 import { fetchProducts, fetchCategories, fetchSuppliers } from './apiRequests.js'
-import { addItemToCart } from './actions/index.js';
 
 const loggerMiddleWare = createLogger();
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggerMiddleWare));

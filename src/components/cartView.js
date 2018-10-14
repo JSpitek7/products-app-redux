@@ -4,7 +4,7 @@ import InventoryItem from './inventoryItem.js'
 import './cartView.css'
 
 const CartView = ({items, removeItemFromCart}) => (
-    <div className="cartView">
+    <div className="cartView" id="cart">
         <h2>Your Shopping Cart</h2>
         <ul>{items.map(item =>
                 <InventoryItem
