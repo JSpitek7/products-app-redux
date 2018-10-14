@@ -22,7 +22,3 @@ render(
   </Provider>,
   document.getElementById('root')
 )
-
-addItemToCart(
-    {id: 101, name: "Hammock", price: 24.99, category: "Hammocks", supplier: "Spear"}
-);
