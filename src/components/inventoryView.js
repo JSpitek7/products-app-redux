@@ -5,10 +5,12 @@ import InventoryItem from './inventoryItem.js'
 
 const InventoryView = ({items, addItemToCart}) => (
     <div className="inventoryView">
+        <h2>Products for Sale</h2>
         <ul>{items.map(item =>
                 <InventoryItem
-                addItemToCart={addItemToCart}
                 item={item}
+                action={addItemToCart}
+                actionDescription="Add to cart"
                 />
             )}
         </ul>
