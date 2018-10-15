@@ -4,10 +4,12 @@ import categories from './categories.js'
 import suppliers from './suppliers.js'
 import cart from './cart.js'
 import visibility from './visibility.js'
+import filters from './filters.js'
 export default combineReducers({
     products,
     categories,
     suppliers,
     cart,
-    visibility
+    visibility,
+    filters
 })

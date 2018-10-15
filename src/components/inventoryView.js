@@ -5,8 +5,8 @@ import InventoryItem from './inventoryItem.js'
 import ListItem from './listItem.js'
 
 const InventoryView = ({items, addItemToCart, switchView,
-     cartItems, fetchByCategory, fetchProducts,
-      categories, fetchBySupplier, suppliers}) => (
+     cartItems, categories, suppliers,
+     selectedCategory, selectedSupplier, changeFilter}) => (
     <div className="inventoryView" id="inventory">
         <button onClick={() => {
                 if (cartItems !== []) {
@@ -19,11 +19,9 @@ const InventoryView = ({items, addItemToCart, switchView,
         <h3>Filter by Category</h3>
         <select onChange={(event) => {
             let category = event.target.value;
-            if (category === 'all') {
-                fetchProducts()
-            } else {
-                fetchByCategory(category)
-            }}}>
+            console.log(event.target.value);
+            changeFilter(category, selectedSupplier);
+            }}>
             {categories.map(category =>
                 <ListItem
                     value={category}
@@ -34,11 +32,8 @@ const InventoryView = ({items, addItemToCart, switchView,
         <h3>Filter by Brand</h3>
         <select onChange={(event) => {
             let supplier = event.target.value;
-            if (supplier === 'all') {
-                fetchProducts()
-            } else {
-                fetchBySupplier(supplier)
-            }}}>
+            changeFilter(selectedCategory, supplier)
+            }}>
             {suppliers.map(supplier =>
                 <ListItem
                     value={supplier}
@@ -74,9 +69,11 @@ InventoryView.propTypes = {
         category: PropTypes.string.isRequired,
         supplier: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    fetchByCategory: PropTypes.func.isRequired,
-    fetchProducts: PropTypes.func.isRequired,
-    categories: PropTypes.arrayOf(PropTypes.string.isRequired)
+    categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    suppliers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedCategory: PropTypes.string.isRequired,
+    selectedSupplier: PropTypes.string.isRequired,
+    changeFilter: PropTypes.func.isRequired
 }
 
 export default InventoryView

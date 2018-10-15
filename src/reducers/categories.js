@@ -1,5 +1,5 @@
 const categories =(state = [
-    "all"
+    'Show All'
 ], action) => {
     switch (action.type) {
         case 'REQUEST_CATEGORIES':

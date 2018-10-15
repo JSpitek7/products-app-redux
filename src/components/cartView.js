@@ -26,7 +26,7 @@ const CartView = ({items, removeItemFromCart, switchView}) => (
                 />
             )}
             <tr>
-                <h3>Total: ${sum(items).toFixed(2)}</h3>
+                <p>Total: ${sum(items).toFixed(2)}</p>
             </tr>
         </table>
     </div>

@@ -56,3 +56,15 @@ export function showCart() {
         type: 'SHOW_CART'
     }
 }
+export function selectCategory(category) {
+    return {
+        type: 'FILTER_CATEGORY',
+        category: category
+    }
+}
+export function selectSupplier(supplier) {
+    return {
+        type: 'FILTER_SUPPLIER',
+        supplier: supplier
+    }
+}
