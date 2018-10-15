@@ -1,14 +1,12 @@
 .App {
-    text-align: center;
-    background: forestgreen;
-  }  
+    }  
   .App-header {
     background-color: forestgreen;
+    padding-top: 40px;
     height: 100px;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    font-size: calc(16px + 2vmin);
-    color: white;
+    font-size: calc(26px + 2vmin);
+    color: white
   }  

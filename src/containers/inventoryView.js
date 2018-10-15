@@ -1,13 +1,18 @@
 import { connect } from 'react-redux'
 import InventoryView from '../components/inventoryView'
-import {addItemToCart} from '../actions/index.js'
+import {
+    addItemToCart,
+    showCart
+} from '../actions/index.js'
 
 const mapStateToProps = state => ({
-    items: state.products
+    items: state.products,
+    cartItems: state.cart
 })
 
 const mapDispatchToProps = dispatch => ({
-    addItemToCart: json => dispatch(addItemToCart(json))
+    addItemToCart: json => dispatch(addItemToCart(json)),
+    switchView: () => dispatch(showCart())
 })
 
 const Inventory = connect(

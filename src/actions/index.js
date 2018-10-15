@@ -40,10 +40,10 @@ export function addItemToCart(json) {
         item: json
     }
 }
-export function removeItemFromCart(id) {
+export function removeItemFromCart(json) {
     return {
         type: 'REMOVE_ITEM',
-        itemId: id
+        item: json
     }
 }
 export function showInventory() {

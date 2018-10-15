@@ -15,7 +15,7 @@ function show(ind) {
 
 const View = ({showInventory}) => (
     <div>
-        {show(showInventory)? <Inventory/> : <Cart/>}
+        {(showInventory === 'show')? <Inventory/> : <Cart/>}
     </div>
 )
 

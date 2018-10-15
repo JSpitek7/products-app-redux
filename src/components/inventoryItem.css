@@ -1,6 +1,13 @@
-.pitem {
+tr {
+    height: 50px;
+    vertical-align: middle;
+
 }
-li {
-    list-style-type: none;
-    text-align: left; 
-    }
+td.itemInfo {
+    width: 400px;
+}
+td.itemAction {
+    margin: auto;
+    vertical-align: middle;
+    display: table-cell;
+}

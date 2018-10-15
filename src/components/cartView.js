@@ -3,17 +3,32 @@ import PropTypes from 'prop-types'
 import InventoryItem from './inventoryItem.js'
 import './cartView.css'
 
-const CartView = ({items, removeItemFromCart}) => (
+function sum(arr) {
+    let total = 0;
+    arr.forEach(a => {
+        total += a.price
+    });
+    return total
+}
+
+const CartView = ({items, removeItemFromCart, switchView}) => (
     <div className="cartView" id="cart">
         <h2>Your Shopping Cart</h2>
-        <ul>{items.map(item =>
+        <button onClick={() => {
+            switchView()}}>
+            Continue Shopping
+        </button>
+        <table>{items.map(item =>
                 <InventoryItem
                 item={item}
                 action={removeItemFromCart}
                 actionDescription="Remove from Cart"
                 />
             )}
-        </ul>
+            <tr>
+                <h3>Total: ${sum(items).toFixed(2)}</h3>
+            </tr>
+        </table>
     </div>
 )
 
@@ -25,7 +40,8 @@ CartView.propTypes = {
         category: PropTypes.string.isRequired,
         supplier: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    removeItemFromCart: PropTypes.func.isRequired
+    removeItemFromCart: PropTypes.func.isRequired,
+    switchView: PropTypes.func.isRequired
 }
 
 export default CartView

@@ -5,7 +5,6 @@ import {
     receiveProducts,
     receiveCategories,
     receiveSuppliers,
-    showInventory
 } from './actions'
 
 export function fetchProducts() {
@@ -14,7 +13,10 @@ export function fetchProducts() {
         return fetch('http://localhost:8080/products')
         .then(
             response => response.json(),
-            error => console.log('An error occured.', error)
+            error => {
+                console.log('An error occured.', error)
+                return []
+            }
         )
         .then(jsonResponse => {
             dispatch(receiveProducts(jsonResponse))
@@ -28,7 +30,10 @@ export function fetchCategories() {
         return fetch('http://localhost:8080/categories')
         .then(
             response => response.json(),
-            error => console.log('An error occured.', error)
+            error => {
+                console.log('An error occured.', error)
+                return []
+            }
         )
         .then(jsonResponse => {
             dispatch(receiveCategories(jsonResponse))
@@ -42,13 +47,13 @@ export function fetchSuppliers() {
         return fetch('http://localhost:8080/suppliers')
         .then(
             response => response.json(),
-            error => console.log('An error occured.', error)
+            error => {
+                console.log('An error occured.', error)
+                return []
+            }
         )
         .then(jsonResponse => {
             dispatch(receiveSuppliers(jsonResponse))            
         })
-        .then(
-            dispatch(showInventory)
-        )
     }
 }
