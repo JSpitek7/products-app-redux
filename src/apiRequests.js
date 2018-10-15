@@ -41,6 +41,23 @@ export function fetchCategories() {
     }
 }
 
+export function fetchByCategory(category) {
+    return dispatch => {
+        dispatch(requestProducts())
+        return fetch('http://localhost:8080/products/category/' + category)
+        .then(
+            response => response.json(),
+            error => {
+                console.log('An error occured.', error)
+                return []
+            }
+        )
+        .then(jsonResponse => {
+            dispatch(receiveProducts(jsonResponse))
+        })
+    }
+}
+
 export function fetchSuppliers() {
     return dispatch => {
         dispatch(requestSuppliers())
@@ -54,6 +71,23 @@ export function fetchSuppliers() {
         )
         .then(jsonResponse => {
             dispatch(receiveSuppliers(jsonResponse))            
+        })
+    }
+}
+
+export function fetchBySupplier(supplier) {
+    return dispatch => {
+        dispatch(requestProducts())
+        return fetch('http://localhost:8080/products/supplier/' + supplier)
+        .then(
+            response => response.json(),
+            error => {
+                console.log('An error occured.', error)
+                return []
+            }
+        )
+        .then(jsonResponse => {
+            dispatch(receiveProducts(jsonResponse))
         })
     }
 }

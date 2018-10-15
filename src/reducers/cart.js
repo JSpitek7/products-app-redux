@@ -3,7 +3,7 @@ const cart =(state = [], action) => {
         case 'ADD_ITEM':
             return [...state, action.item]
         case 'REMOVE_ITEM':
-            let index = state.findIndex(x => x == action.item);
+            let index = state.findIndex(x => x === action.item);
             return [
                 ...state.slice(0, index),
                 ...state.slice(index + 1)

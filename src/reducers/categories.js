@@ -1,9 +1,13 @@
-const categories =(state = [], action) => {
+const categories =(state = [
+    "all"
+], action) => {
     switch (action.type) {
         case 'REQUEST_CATEGORIES':
             return state
         case 'RECEIVE_CATEGORIES':
-            return action.categories
+            return [
+                state, ...action.categories
+            ]
         default:
             return state
     }

@@ -1,9 +1,13 @@
-const suppliers =(state = [], action) => {
+const suppliers =(state = [
+    'Show All'
+], action) => {
     switch (action.type) {
         case 'REQUEST_SUPPLIERS':
             return state
         case 'RECEIVE_SUPPLIERS':
-            return action.suppliers
+            return[
+                state, ...action.suppliers
+            ]
         default:
             return state
     }
