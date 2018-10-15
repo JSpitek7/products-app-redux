@@ -4,16 +4,7 @@ import Cart from '../containers/cartView.js'
 import PropTypes from 'react'
 import './app.css';
 
-function show(ind) {
-    console.log(ind);
-    if (ind === 'show') {
-        return true
-    } else {
-        return false
-    }
-}
-
-const View = ({showInventory}) => (
+const View = ({ showInventory }) => (
     <div>
         {(showInventory === 'show')? <Inventory/> : <Cart/>}
     </div>

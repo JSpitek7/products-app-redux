@@ -8,16 +8,16 @@ function sum(arr) {
     arr.forEach(a => {
         total += a.price
     });
-    return total
+    return total;
 }
 
 const CartView = ({items, removeItemFromCart, switchView}) => (
     <div className="cartView" id="cart">
-        <h2>Your Shopping Cart</h2>
         <button onClick={() => {
             switchView()}}>
             Continue Shopping
         </button>
+        <h2>Your Shopping Cart</h2>
         <table>{items.map(item =>
                 <InventoryItem
                 item={item}

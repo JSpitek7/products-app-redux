@@ -8,5 +8,6 @@
     align-items: center;
     justify-content: center;
     font-size: calc(26px + 2vmin);
+    font-family: serif;
     color: white
   }  
