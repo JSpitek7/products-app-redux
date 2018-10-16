@@ -7,10 +7,12 @@ import {
     receiveSuppliers,
 } from './actions'
 
+const url = 'https://products-spring-api.herokuapp.com/'
+
 export function fetchProducts() {
     return dispatch => {
         dispatch(requestProducts())
-        return fetch('http://localhost:8080/products')
+        return fetch(url + 'products')
         .then(
             response => response.json(),
             error => {
@@ -27,7 +29,7 @@ export function fetchProducts() {
 export function fetchCategories() {
     return dispatch => {
         dispatch(requestCategories())
-        return fetch('http://localhost:8080/categories')
+        return fetch(url + 'categories')
         .then(
             response => response.json(),
             error => {
@@ -44,7 +46,7 @@ export function fetchCategories() {
 export function fetchSuppliers() {
     return dispatch => {
         dispatch(requestSuppliers())
-        return fetch('http://localhost:8080/suppliers')
+        return fetch(url + 'suppliers')
         .then(
             response => response.json(),
             error => {
@@ -61,7 +63,7 @@ export function fetchSuppliers() {
 export function fetchByCategory(category) {
     return dispatch => {
         dispatch(requestProducts())
-        return fetch('http://localhost:8080/products/category/' + category)
+        return fetch(url + 'products/category/' + category)
         .then(
             response => response.json(),
             error => {
@@ -78,7 +80,7 @@ export function fetchByCategory(category) {
 export function fetchBySupplier(supplier) {
     return dispatch => {
         dispatch(requestProducts())
-        return fetch('http://localhost:8080/products/supplier/' + supplier)
+        return fetch(url + 'products/supplier/' + supplier)
         .then(
             response => response.json(),
             error => {
@@ -95,7 +97,7 @@ export function fetchBySupplier(supplier) {
 export function fetchByCategoryAndSupplier(category, supplier) {
     return dispatch => {
         dispatch(requestProducts())
-        return fetch('http://localhost:8080/products/' + category + '/' + supplier)
+        return fetch(url + 'products/' + category + '/' + supplier)
         .then(
             response => response.json(),
             error => {
